@@ -9,6 +9,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 // containers
 import App from './app';
+import MainContainer from './main/main_container';
 // import PostsIndexContainer from './index/posts_index_container';
 // import PostContainer from './post/post_container';
 
@@ -53,7 +54,7 @@ import App from './app';
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path ="/" component={App}>
-          // <IndexRoute component={PostsIndexContainer} onEnter={loadAllPosts}/>
+          <IndexRoute component={MainContainer} />
 
 
         </Route>

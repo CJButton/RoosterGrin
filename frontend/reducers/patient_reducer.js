@@ -1,25 +1,25 @@
 
 
 
-import {RECEIVE_POST,
+import {RECEIVE_PATIENT,
         RECEIVE_ERRORS,
-        RECEIVE_ALL_POSTS,
-        REMOVE_POST,
+        RECEIVE_ALL_PATIENTS,
+        REMOVE_PATIENT,
         RECEIVE_EDIT} from '../actions/posts_actions';
 
 import { merge } from 'lodash';
 
 
-const PostsReducer = (state = {}, action) => {
+const PatientsReducer = (state = {}, action) => {
 
   switch(action.type) {
 
-    case RECEIVE_POST:
-    const newPost = merge({}, action.post);
-      return merge(newPost);
+    case RECEIVE_PATIENT:
+    const patientInfo = merge({}, action.info);
+      return merge(patientInfo);
 
-    case RECEIVE_ALL_POSTS:
-      return merge({}, action.posts);
+    case RECEIVE_ALL_PATIENTS:
+      return merge({}, action.patients);
 
     case RECEIVE_EDIT:
       const editedPost = merge({}, state, action.post);
@@ -27,7 +27,7 @@ const PostsReducer = (state = {}, action) => {
 
     case REMOVE_POST:
       let deletePostState = merge({}, state);
-      delete deletePostState.allPosts[action.post.id];
+      delete deletePostState.allPatients[action.post.id];
       deletePostState.userPost = {};
       return deletePostState;
 

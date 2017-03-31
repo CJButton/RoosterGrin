@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // const preloadedState = {session: {currentUser: window.currentUser}};
     // store = configureStore(preloadedState);
     // } else {
-    // store = configureStore();
     // }
+    // let store = configureStore();
     // const root = document.getElementById('root');
     // ReactDOM.render(<Root store={store} />, root);
     // window.store = store;
