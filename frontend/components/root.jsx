@@ -20,14 +20,20 @@ import App from './app';
 
   const Root = ({store}) => {
 
-    // const _ensureLoggedIn = (nextState, replace) => {
-    // const currentUser = store.getState().session.currentUser;
-    // if (!currentUser) {
-    //   replace('/');
-    // }
-
-  };
+  //   const _ensureLoggedIn = (nextState, replace) => {
+  //   const currentUser = store.getState().session.currentUser;
+  //   if (!currentUser) {
+  //     replace('/');
+  //   }
   //
+  // };
+  // const _redirectIfLoggedIn = (nextState, replace) => {
+  //   const currentUser = store.getState().session.currentUser;
+  //   if (currentUser) {
+  //     replace('/');
+  //   }
+  // };
+
   // const loadAllPosts = () => {
   //   store.dispatch(requestAllPosts());
   // };
@@ -46,13 +52,9 @@ import App from './app';
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <IndexRoute component={App}/>
-        // <Route path ="/" component={App}>
+        <Route path ="/" component={App}>
           // <IndexRoute component={PostsIndexContainer} onEnter={loadAllPosts}/>
-          //
-          // <Route path="/posts/:id"
-          //    component={PostContainer}
-          //    onEnter={loadPost}/>
+
 
         </Route>
       </Router>
