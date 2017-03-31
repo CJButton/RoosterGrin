@@ -1,32 +1,33 @@
 
 import { hashHistory } from 'react-router';
 
-import {receivePatientInfo,
-        REQUEST_PATIENTS_INFO,
-        requestAllPatients,
+import {
+        REQUEST_PATIENT_INFO,
+        receivePatientInfo,
+        REQUEST_ALL_PATIENTS,
         receiveAllPatients,
-        receiveErrors} from '../actions/patient_actions';
+        receiveErrors} from '../actions/patients_actions';
 
-import { getAllPatients, getPatientInfo} from '../util/patient_api_util';
+import { getAllPatients, getPatientInfo} from '../util/patients_api_util';
 
 const PatientsMiddleware = ({ getState, dispatch }) => next => action => {
-  const errorCallBack = xhr => dispatch(receiveErrors(xhr.responseJSON));
+  const errors = xhr => dispatch(receiveErrors(xhr.responseJSON));
   let success;
 
   switch(action.type) {
     case REQUEST_ALL_PATIENTS:
       success = patients => dispatch(receiveAllPatients(patients));
-      getAllPatients(success, errorCallBack);
+      getAllPatients(success, errors);
       return next(action);
 
-    case REQUEST_PATIENTS:
+    case REQUEST_PATIENT_INFO:
     // getting an unusual error where the db was getting hit twice
     // so created an if statement to prevent an error
-      success = info => dispatch(receivePatient(info));
+      success = info => dispatch(receivePatientInfo(info));
       // if (action.type === "RECEIVE_POST" && action.id === undefined) {
       //   return next(action);
       // }
-      getPatient(action.id, success, errorCallBack);
+      getPatientInfo(action.id, success, errors);
       return next(action);
 
     default:

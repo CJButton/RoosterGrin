@@ -4,7 +4,7 @@
 export const getPatientInfo = (id, success, errors) => {
   $.ajax({
     type: 'GET',
-    url: `api/posts/${id}`,
+    url: `api/patients/${id}`,
     success,
     errors
   });

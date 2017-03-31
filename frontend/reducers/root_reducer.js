@@ -5,10 +5,10 @@
 
 import { combineReducers } from 'redux';
 
-import PostsReducer from './posts_reducer';
+import PatientsReducer from './patients_reducer';
 
 const RootReducer = combineReducers({
-  posts: PostsReducer
+  patient: PatientsReducer
 });
 
 export default RootReducer;

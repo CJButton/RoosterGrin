@@ -2,10 +2,10 @@
 
 import { applyMiddleware } from 'redux';
 
-import PostsMiddleware from './posts_middleware';
+import PatientsMiddleware from './patients_middleware';
 
 const RootMiddleware = applyMiddleware(
-  PostsMiddleware
+  PatientsMiddleware
 );
 
 export default RootMiddleware;
