@@ -9,13 +9,13 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 // containers
 import App from './app';
-import PostsIndexContainer from './index/posts_index_container';
-import PostContainer from './post/post_container';
+// import PostsIndexContainer from './index/posts_index_container';
+// import PostContainer from './post/post_container';
 
 
 // actions
-import { requestAllPosts, requestPost } from '../actions/posts_actions';
-import { requestPostComments } from '../actions/comments_actions';
+// import { requestAllPosts, requestPost } from '../actions/posts_actions';
+// import { requestPostComments } from '../actions/comments_actions';
 
 
   const Root = ({store}) => {
