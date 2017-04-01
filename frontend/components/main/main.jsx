@@ -10,6 +10,7 @@ class Main extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
+      currentPatient: "Select a Patient"
     };
   }
 
@@ -42,6 +43,9 @@ class Main extends React.Component{
 
   selectPatient(e) {
     this.props.requestPatientInfo(e.value);
+    this.setState({
+      currentPatient: e.label
+    });
   }
 
 
@@ -50,10 +54,14 @@ class Main extends React.Component{
     return (
     <div className="mainWrapper">
 
-      <h1>Hello from main.jsx!</h1>
+      <h1>Email formatting:</h1>
       <Dropdown options={this.props.patients}
                 onChange={this.selectPatient.bind(this)}
-                placeholder="Select a Patient" />
+                placeholder={this.state.currentPatient} />
+
+      <textarea></textarea>
+      <br></br>
+      <button>Submit!</button>
 
     </div>
 
