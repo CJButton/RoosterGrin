@@ -4,14 +4,14 @@ import React from 'react';
 import {HashRouter, Link} from 'react-router';
 
 import Modal from 'react-modal';
+import Dropdown from 'react-dropdown'
 
 class Main extends React.Component{
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //
-    // };
+    this.state = {
+      patientsList: this.props.patients
+    };
   }
 
   // update(property) {
@@ -41,27 +41,20 @@ class Main extends React.Component{
   //   Modal.setAppElement('body');
   // }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   let user_id = this.props.user.id;
-  //   let title = this.state.title;
-  //   let body = this.state.text;
-  //   let username = this.props.user.username;
-  //   const newPost = {post: {user_id, title, body, username}};
-  //   this.props.submitPost(newPost);
-  //   this.setState({
-  //     title: "",
-  //     text: "",
-  //     addModal: false
-  //   });
-  // }
+  selectPatient(e) {
+    console.log(e);
+  }
+
 
   render() {
+    console.log(this.props.patients);
     return (
     <div className="mainWrapper">
 
       <h1>Hello from main.jsx!</h1>
-
+      <Dropdown options={this.props.patients}
+                onChange={this.selectPatient.bind(this)}
+                placeholder="Select a Patient" />
 
     </div>
 

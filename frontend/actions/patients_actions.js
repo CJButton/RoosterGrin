@@ -19,9 +19,8 @@ export const receivePatientInfo = (info) => ({
   info
 });
 
-export const requestAllPatients = (patients) => ({
-  type: REQUEST_ALL_PATIENTS,
-  patients
+export const requestAllPatients = () => ({
+  type: REQUEST_ALL_PATIENTS
 });
 
 export const receiveAllPatients = (patients) => ({

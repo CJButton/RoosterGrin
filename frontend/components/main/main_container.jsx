@@ -8,7 +8,8 @@ import MainComponent from './main';
 
 import values from 'lodash/values';
 
-const mapStateToProps = ({}) => ({
+const mapStateToProps = ({patient}) => ({
+  patients: values(patient)
 });
 
 const mapDispatchToProps = dispatch => ({

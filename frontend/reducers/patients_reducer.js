@@ -8,11 +8,9 @@ import {RECEIVE_PATIENT_INFO,
 import { merge } from 'lodash';
 
 const PatientsReducer = (state = {}, action) => {
-
   switch(action.type) {
 
     case RECEIVE_PATIENT_INFO:
-
     const patientInfo = merge({}, action.info);
       return merge(patientInfo);
 

@@ -12,53 +12,27 @@ import App from './app';
 import MainContainer from './main/main_container';
 
 // actions
+import { requestAllPatients } from '../actions/patients_actions';
 // import { requestAllPosts, requestPost } from '../actions/posts_actions';
 // import { requestPostComments } from '../actions/comments_actions';
 
 
 const Root = ({store}) => {
 
-  //   const _ensureLoggedIn = (nextState, replace) => {
-  //   const currentUser = store.getState().session.currentUser;
-  //   if (!currentUser) {
-  //     replace('/');
-  //   }
-  //
-  // };
-  // const _redirectIfLoggedIn = (nextState, replace) => {
-  //   const currentUser = store.getState().session.currentUser;
-  //   if (currentUser) {
-  //     replace('/');
-  //   }
-  // };
+  const getAllPatients = () => {
+    store.dispatch(requestAllPatients());
+  }
 
-  // const loadAllPosts = () => {
-  //   store.dispatch(requestAllPosts());
-  // };
-  //
-  // const loadPost = (nextState) => {
-  //   let post_id = nextState.params.id;
-  //   let user_id = null;
-  //   let body = null;
-  //   let username = null;
-  //   let findComments = {post_id, user_id, body, username};
-  //   store.dispatch(requestPost(nextState.params.id));
-  //   store.dispatch(requestPostComments(findComments));
-  //
-  // };
-
-  debugger
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path ="/" component={App}>
-          <IndexRoute component={MainContainer}/>
+          <IndexRoute component={MainContainer} onEnter={getAllPatients}/>
 
         </Route>
       </Router>
     </Provider>
   );
-
 };
 
 export default Root;

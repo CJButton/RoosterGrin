@@ -8,7 +8,7 @@ import {
         receiveAllPatients,
         receiveErrors} from '../actions/patients_actions';
 
-import { getAllPatients, getPatientInfo} from '../util/patients_api_util';
+import { getAllPatients, getPatientInfo } from '../util/patients_api_util';
 
 const PatientsMiddleware = ({ getState, dispatch }) => next => action => {
   const errors = xhr => dispatch(receiveErrors(xhr.responseJSON));
