@@ -20,7 +20,8 @@ class Main extends React.Component{
       state: "",
       zip: "",
       formatHide: "",
-      formatShow: "formatHide"
+      formatShow: "formatHide",
+      finalText: []
     };
   }
 
@@ -52,13 +53,13 @@ class Main extends React.Component{
   // }
   componentWillReceiveProps(nextProps) {
     this.setState({
-      fname: nextProps.first_name,
-      lname: nextProps.last_name,
-      street: nextProps.street_address,
-      phone: nextProps.phone_number,
-      city: nextProps.city,
-      state: nextProps.state,
-      zip: nextProps.zip,
+      fname: nextProps.patientInfo.first_name,
+      lname: nextProps.patientInfo.last_name,
+      street: nextProps.patientInfo.street_address,
+      phone: nextProps.patientInfo.phone_number,
+      city: nextProps.patientInfo.city,
+      state: nextProps.patientInfo.state,
+      zip: nextProps.patientInfo.zip,
     })
   }
 
@@ -69,6 +70,10 @@ class Main extends React.Component{
   }
 
   handleSubmit() {
+    this.state.text.split(" ").forEach((word) => {
+      this.state.finalText.push(word)
+    })
+    console.log(this.state.finalText);
     this.setState({
       formatHide: "formatHide",
       formatShow: ""
@@ -84,7 +89,6 @@ class Main extends React.Component{
 
 
   render() {
-    console.log(this.props);
     console.log(this.state);
     return (
     <div className="mainWrapper">
@@ -108,10 +112,12 @@ class Main extends React.Component{
 
 
       </div>
+
       <div className={this.state.formatShow}>
-                  {this.state.text.split("\n").map((word, idx) => {
+                  {this.state.text.split("\n").map((sentence, idx) => {
                     return(
-                      <span key={idx}>{word}<br/></span>
+                      // <span key={idx}>{sentence}<br/></span>
+                      <span key={idx}>{this.state[sentence]}</span>
                     );
                   })}
 
