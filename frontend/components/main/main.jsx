@@ -1,16 +1,17 @@
 
 
 import React from 'react';
-import { Link } from 'react-router';
+import {HashRouter, Link} from 'react-router';
+
 import Modal from 'react-modal';
 
 class Main extends React.Component{
   constructor(props) {
     super(props);
 
-    this.state = {
-
-    };
+    // this.state = {
+    //
+    // };
   }
 
   // update(property) {

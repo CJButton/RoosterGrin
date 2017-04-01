@@ -10,16 +10,13 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 // containers
 import App from './app';
 import MainContainer from './main/main_container';
-// import PostsIndexContainer from './index/posts_index_container';
-// import PostContainer from './post/post_container';
-
 
 // actions
 // import { requestAllPosts, requestPost } from '../actions/posts_actions';
 // import { requestPostComments } from '../actions/comments_actions';
 
 
-  const Root = ({store}) => {
+const Root = ({store}) => {
 
   //   const _ensureLoggedIn = (nextState, replace) => {
   //   const currentUser = store.getState().session.currentUser;
@@ -50,12 +47,12 @@ import MainContainer from './main/main_container';
   //
   // };
 
+  debugger
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path ="/" component={App}>
-          <IndexRoute component={MainContainer} />
-
+          <IndexRoute component={MainContainer}/>
 
         </Route>
       </Router>

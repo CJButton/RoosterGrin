@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // store = configureStore(preloadedState);
     // } else {
     // }
-    // let store = configureStore();
-    // const root = document.getElementById('root');
-    // ReactDOM.render(<Root store={store} />, root);
+    let store = configureStore();
+    const root = document.getElementById('root');
+    ReactDOM.render(<Root store={store} />, root);
     // window.store = store;
 
 
-    const root = document.getElementById('root');
-    ReactDOM.render(<h1>Welcome to Rooster Grin Medical!</h1>, root);
+    // const root = document.getElementById('root');
+    // ReactDOM.render(<h1>Welcome to Rooster Grin Medical!</h1>, root);
 });
