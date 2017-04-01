@@ -6,10 +6,46 @@
 .Dropdown-root {
   width: 200px;
   background-color: orange;
+  // padding-left: 5px;
+}
+
+.Dropdown-placeholder {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Dropdown-option {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Dropdown-option:hover{
+  background-color: pink;
 }
 
 .Dropdown-menu {
   background-color: white;
   position: absolute;
   z-index: 1;
+  width: 200px;
+}
+
+.textAreaContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.textArea {
+  height: 200px;
+  width: 30%;
+}
+
+.submitButton {
+  width: 150px;
+  cursor: pointer;
+}
+
+.formatHide {
+  display: none;
 }

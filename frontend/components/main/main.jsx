@@ -10,7 +10,10 @@ class Main extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      currentPatient: "Select a Patient"
+      currentPatient: "Select a Patient",
+      text: "",
+      formatHide: "",
+      formatShow: "formatHide"
     };
   }
 
@@ -41,6 +44,19 @@ class Main extends React.Component{
   //   Modal.setAppElement('body');
   // }
 
+  handleText(e) {
+    this.setState({
+      text: e.target.value
+    });
+  }
+
+  handleSubmit() {
+    this.setState({
+      formatHide: "formatHide",
+      formatShow: ""
+    });
+  }
+
   selectPatient(e) {
     this.props.requestPatientInfo(e.value);
     this.setState({
@@ -51,17 +67,32 @@ class Main extends React.Component{
 
   render() {
     console.log(this.props);
+    console.log(this.state);
     return (
     <div className="mainWrapper">
 
-      <h1>Email formatting:</h1>
-      <Dropdown options={this.props.patients}
-                onChange={this.selectPatient.bind(this)}
-                placeholder={this.state.currentPatient} />
+      <div className={`formatWrapper` + " " + this.state.formatHide}>
+        <h1>Email formatting:</h1>
+        <Dropdown options={this.props.patients}
+          onChange={this.selectPatient.bind(this)}
+          placeholder={this.state.currentPatient} />
+        <br></br>
+        <br></br>
+        <div className="textAreaContainer">
+          <p>What would you like to write?</p>
+          <textarea className="textArea"
+            onChange={this.handleText.bind(this)}
+            value={this.state.text}/>
+          <br></br>
+          <button className="submitButton"
+            onClick={this.handleSubmit.bind(this)}>Submit!</button>
+        </div>
 
-      <textarea></textarea>
-      <br></br>
-      <button>Submit!</button>
+
+      </div>
+      <div className={this.state.formatShow}>
+        <p>{this.state.text}</p>
+      </div>
 
     </div>
 
