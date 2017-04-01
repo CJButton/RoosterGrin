@@ -19,38 +19,13 @@ class Main extends React.Component{
       city: "",
       state: "",
       zip: "",
+      email: "",
       formatHide: "",
       formatShow: "formatHide",
       finalText: []
     };
   }
 
-  // update(property) {
-  //   return e => this.setState({[property]: e.target.value});
-  // }
-  //
-  // closeModal() {
-  //   this.setState({
-  //     addModal: false,
-  //     errorModal: false
-  //   });
-  // }
-  //
-  // openAddModal() {
-  //   if (this.props.user === null) {
-  //     this.setState({
-  //       errorModal: true
-  //     });
-  //   } else {
-  //     this.setState({
-  //       addModal: true
-  //     });
-  //   }
-  // }
-  //
-  // componentWillMount() {
-  //   Modal.setAppElement('body');
-  // }
   componentWillReceiveProps(nextProps) {
     this.setState({
       fname: nextProps.patientInfo.first_name,
@@ -60,6 +35,7 @@ class Main extends React.Component{
       city: nextProps.patientInfo.city,
       state: nextProps.patientInfo.state,
       zip: nextProps.patientInfo.zip,
+      email: nextProps.patientInfo.email
     })
   }
 
@@ -70,9 +46,19 @@ class Main extends React.Component{
   }
 
   handleSubmit() {
-    this.state.text.split(" ").forEach((word) => {
-      this.state.finalText.push(word)
-    })
+
+    let newLine = this.state.text.split("\n");
+
+    newLine.forEach((span) => {
+      let splitSpan = span.split(" ");
+      splitSpan.forEach((word) => {
+        this.state.finalText.push(word);
+        this.state.finalText.push(" ");
+      });
+      this.state.finalText.push("\n");
+    });
+
+
     console.log(this.state.finalText);
     this.setState({
       formatHide: "formatHide",
@@ -114,13 +100,16 @@ class Main extends React.Component{
       </div>
 
       <div className={this.state.formatShow}>
-                  {this.state.text.split("\n").map((sentence, idx) => {
-                    return(
-                      // <span key={idx}>{sentence}<br/></span>
-                      <span key={idx}>{this.state[sentence]}</span>
-                    );
-                  })}
-
+          {this.state.finalText.map((word, idx) => {
+            if (word.includes("@")) {
+              let stateWord = word.split("@")[1]
+              return <span key={idx}>{this.state[stateWord]}</span>
+            } else if (word === "\n") {
+              return React.createElement("br")
+            } else {
+              return <span key={idx}>{word}</span>
+            }
+          })}
       </div>
 
     </div>
@@ -129,4 +118,20 @@ class Main extends React.Component{
   }
 }
 
+// {this.state.text.split("\n").map((sentence, idx) => {
+//   return(
+//     // <span key={idx}>{sentence}<br/></span>
+//     <span key={idx}>{this.state[sentence]}</span>
+//   );
+// })}
 export default Main;
+// return (React.createElement(item.element, null, item.text))
+
+// if (word.includes("@")) {
+//   let stateWord = word.split("@")[1]
+//   return <span key={idx}>{this.state[stateWord]}</span>
+// } else if (word === "\n"){
+//   return "\n"
+// } else {
+//   return <span key={idx}>{word}</span>
+// }
