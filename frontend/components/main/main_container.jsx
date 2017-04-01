@@ -4,15 +4,17 @@ import {connect} from 'react-redux';
 
 import MainComponent from './main';
 
-// import {submitPost} from '../../actions/posts_actions';
+import {requestPatientInfo} from '../../actions/patients_actions';
 
 import values from 'lodash/values';
 
 const mapStateToProps = ({patient}) => ({
-  patients: values(patient)
+  patients: patient.allPatients,
+  patientInfo: patient.patientInfo
 });
 
 const mapDispatchToProps = dispatch => ({
+  requestPatientInfo: (id) => dispatch(requestPatientInfo(id))
 });
 
 export default connect(

@@ -21,12 +21,7 @@ const PatientsMiddleware = ({ getState, dispatch }) => next => action => {
       return next(action);
 
     case REQUEST_PATIENT_INFO:
-    // getting an unusual error where the db was getting hit twice
-    // so created an if statement to prevent an error
       success = info => dispatch(receivePatientInfo(info));
-      // if (action.type === "RECEIVE_POST" && action.id === undefined) {
-      //   return next(action);
-      // }
       getPatientInfo(action.id, success, errors);
       return next(action);
 

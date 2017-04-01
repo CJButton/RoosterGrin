@@ -10,7 +10,6 @@ class Main extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      patientsList: this.props.patients
     };
   }
 
@@ -42,12 +41,12 @@ class Main extends React.Component{
   // }
 
   selectPatient(e) {
-    console.log(e);
+    this.props.requestPatientInfo(e.value);
   }
 
 
   render() {
-    console.log(this.props.patients);
+    console.log(this.props);
     return (
     <div className="mainWrapper">
 

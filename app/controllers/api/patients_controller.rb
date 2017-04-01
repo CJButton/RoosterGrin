@@ -7,13 +7,13 @@ class Api::PatientsController < ApplicationController
   end
 
   def show
-    @patient = Patient.find_by(patient_params[:patient_id].to_i)
+    @patient = Patient.find_by(id: params[:id].to_i)
   end
 
   private
 
   def patient_params
-    params.require(:patient).permit(:patient_id)
+    params.require(:patient).permit(:id)
   end
 
 end
