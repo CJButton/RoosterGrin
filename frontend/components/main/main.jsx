@@ -12,6 +12,13 @@ class Main extends React.Component{
     this.state = {
       currentPatient: "Select a Patient",
       text: "",
+      fname: "",
+      lname: "",
+      street: "",
+      phone: "",
+      city: "",
+      state: "",
+      zip: "",
       formatHide: "",
       formatShow: "formatHide"
     };
@@ -43,6 +50,17 @@ class Main extends React.Component{
   // componentWillMount() {
   //   Modal.setAppElement('body');
   // }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      fname: nextProps.first_name,
+      lname: nextProps.last_name,
+      street: nextProps.street_address,
+      phone: nextProps.phone_number,
+      city: nextProps.city,
+      state: nextProps.state,
+      zip: nextProps.zip,
+    })
+  }
 
   handleText(e) {
     this.setState({
@@ -91,7 +109,12 @@ class Main extends React.Component{
 
       </div>
       <div className={this.state.formatShow}>
-        <p>{this.state.text}</p>
+                  {this.state.text.split("\n").map((word, idx) => {
+                    return(
+                      <span key={idx}>{word}<br/></span>
+                    );
+                  })}
+
       </div>
 
     </div>
