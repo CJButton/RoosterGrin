@@ -60,11 +60,18 @@ class Main extends React.Component{
     Modal.setAppElement('body');
    }
 
+   handleProceed() {
+     this.setState({
+       modal: false
+     });
+     this.handleSubmit();
+   }
+
   submitHit() {
     if (this.state.currentPatient === "Select a Patient") {
       this.setState({
         modal: true
-      })
+      });
     } else {
       this.handleSubmit();
     }
@@ -122,6 +129,8 @@ class Main extends React.Component{
 
 
   render() {
+    console.log(this.state.finalText);
+    console.log(this.state.text);
     return (
     <div className="mainWrapper">
 
@@ -167,7 +176,7 @@ class Main extends React.Component{
           <div/>
           <div className="formattedContainer">
             {this.state.finalText.map((word, idx) => {
-              if (word.includes("@")) {
+              if (word[0] === "@") {
                 let stateWord = word.split("@")[1]
                 return <span key={idx}>{this.state[stateWord]}</span>
               } else if (word === "\n") {
@@ -195,7 +204,7 @@ class Main extends React.Component{
                     No! Go back!</button>
 
             <button className="proceedSubmit button"
-                    onClick={this.handleSubmit.bind(this)}>
+                    onClick={this.handleProceed.bind(this)}>
                     Yes! Proceed!</button>
             </div>
         </Modal>
