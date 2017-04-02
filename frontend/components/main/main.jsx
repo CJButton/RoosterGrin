@@ -46,15 +46,42 @@ class Main extends React.Component{
   }
 
   handleSubmit() {
-
     let newLine = this.state.text.split("\n");
+    // let info = ["@fname", "@lname", "@street", "@phone",
+    //             "@city", "@state", "@zip","@email"]
+    // let test = "@lname"
+    // test.replace("@fname", "string replacement");
+    // console.log("@fname".replace("@", "test"));
+    // this.state.finalText.push("@lname".replace("@lname", this.state.lname));
+    // console.log(test);
+
+
 
     newLine.forEach((span) => {
       let splitSpan = span.split(" ");
       splitSpan.forEach((word) => {
-        this.state.finalText.push(word);
+        if (word.includes("@fname")) {
+          this.state.finalText.push(word.replace("@fname", this.state.fname));
+        } else if (word.includes("@lname")) {
+          this.state.finalText.push(word.replace("@lname", this.state.lname));
+        } else if (word.includes("@street")) {
+          this.state.finalText.push(word.replace("@street", this.state.street));
+        } else if (word.includes("@phone")) {
+          this.state.finalText.push(word.replace("@phone", this.state.phone));
+        } else if (word.includes("@city")) {
+          this.state.finalText.push(word.replace("@city", this.state.city));
+        } else if (word.includes("@state")) {
+          this.state.finalText.push(word.replace("@state", this.state.state));
+        } else if (word.includes("@zip")) {
+          this.state.finalText.push(word.replace("@zip", this.state.zip));
+        } else if (word.includes("@email")) {
+          this.state.finalText.push(word.replace("@email", this.state.email));
+        } else {
+          this.state.finalText.push(word);
+        }
         this.state.finalText.push(" ");
       });
+
       this.state.finalText.push("\n");
     });
 
