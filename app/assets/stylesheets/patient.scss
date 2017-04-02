@@ -1,33 +1,49 @@
 
 
 
+.instructions {
+  width: 50%;
+  font-size: 11px;
+  margin-left: 5%;
+}
 
+.instructions > ul {
+  font-size: 12px;
+  margin: 0px;
+}
 
 .Dropdown-root {
   width: 200px;
-  background-color: orange;
-  // padding-left: 5px;
+  background-color: #BBBBBB;
+  margin-left: 5%;
 }
 
 .Dropdown-placeholder {
   padding: 5px;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .Dropdown-option {
   padding: 5px;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .Dropdown-option:hover{
-  background-color: pink;
+  background-color: #D3D3D3;
 }
 
 .Dropdown-menu {
-  background-color: white;
+  background-color: #BBBBBB;
   position: absolute;
   z-index: 1;
   width: 200px;
+}
+
+.dropdownInstruction {
+  font-size: 15px;
+  margin-left: 5%;
 }
 
 .textAreaContainer {
@@ -38,14 +54,70 @@
 
 .textArea {
   height: 200px;
-  width: 30%;
+  width: 60%;
+  margin-left: 5%;
+  padding: 5px;
 }
 
 .submitButton {
   width: 150px;
+  height: 30px;
+  border: none;
+  margin-left: 28%;
+  background-color: #BBBBBB;
+}
+
+.button {
   cursor: pointer;
+}
+
+.textAreaTitle {
+  margin-left: 5%;
 }
 
 .formatHide {
   display: none;
+}
+
+.proceedSubmit {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: #BBBBBB;
+}
+
+.proceedSubmit:hover {
+  background-color: #D3D3D3;
+}
+
+.submitChecker {
+  margin-left: 55px;
+  margin-right: 10px;
+}
+
+.closeModal {
+  margin-right: 20px;
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: #BBBBBB;
+}
+
+.closeModal:hover {
+  background-color: #D3D3D3;
+}
+
+.warningModal {
+  position: fixed;
+  top: 39%;
+  left: 20%;
+  background-color: white;
+  padding: 15px;
+  color: black;
+  padding: 15px;
+  font-size: 12px;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
 }
