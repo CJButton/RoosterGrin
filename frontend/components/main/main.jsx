@@ -89,30 +89,15 @@ class Main extends React.Component{
     newLine.forEach((span) => {
       let splitSpan = span.split(" ");
       splitSpan.forEach((word) => {
-        if (word.includes("@fname")) {
-          this.state.finalText.push(word.replace("@fname", this.state.fname));
-        } else if (word.includes("@lname")) {
-          this.state.finalText.push(word.replace("@lname", this.state.lname));
-        } else if (word.includes("@street")) {
-          this.state.finalText.push(word.replace("@street", this.state.street));
-        } else if (word.includes("@phone")) {
-          this.state.finalText.push(word.replace("@phone", this.state.phone));
-        } else if (word.includes("@city")) {
-          this.state.finalText.push(word.replace("@city", this.state.city));
-        } else if (word.includes("@state")) {
-          this.state.finalText.push(word.replace("@state", this.state.state));
-        } else if (word.includes("@zip")) {
-          this.state.finalText.push(word.replace("@zip", this.state.zip));
-        } else if (word.includes("@email")) {
-          this.state.finalText.push(word.replace("@email", this.state.email));
+        if (this.state[word.split(1)]) {
+          this.state.finalText.push(word.replace(("@" + word), this.state[name]));
         } else {
           this.state.finalText.push(word);
         }
         this.state.finalText.push(" ");
-      });
-
-      this.state.finalText.push("\n");
-    });
+      })
+      this.state.finalText.push("\n")
+    })
 
     this.setState({
       formatHide: "formatHide",
@@ -213,5 +198,13 @@ class Main extends React.Component{
     );
   }
 }
+
+// Hi @fname @lname
+//
+// Is this contact info still correct?
+// @street
+// @city, @state @zip
+// @phone
+// @email
 
 export default Main;
