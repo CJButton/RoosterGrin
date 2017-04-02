@@ -163,21 +163,28 @@ class Main extends React.Component{
 
 
       <div className={this.state.formatShow}>
-          {this.state.finalText.map((word, idx) => {
-            if (word.includes("@")) {
-              let stateWord = word.split("@")[1]
-              return <span key={idx}>{this.state[stateWord]}</span>
-            } else if (word === "\n") {
-              return React.createElement("br")
-            } else {
-              return <span key={idx}>{word}</span>
-            }
-          })}
+        <div className="flexContainer">
+          <div/>
+          <div className="formattedContainer">
+            {this.state.finalText.map((word, idx) => {
+              if (word.includes("@")) {
+                let stateWord = word.split("@")[1]
+                return <span key={idx}>{this.state[stateWord]}</span>
+              } else if (word === "\n") {
+                return React.createElement("br")
+              } else {
+                return <span key={idx}>{word}</span>
+              }
+            })}
+          </div>
+          <div/>
+        </div>
       </div>
 
 
       <Modal className="warningModal"
-             isOpen={this.state.modal}>
+             isOpen={this.state.modal}
+             contentLabel="warningModal">
 
           <p className="modalTitle">
               Are you sure you want to submit without choosing a patient?</p>

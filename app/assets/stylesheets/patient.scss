@@ -1,6 +1,23 @@
 
 
 
+
+
+.formattedContainer {
+  width: 500px;
+  border: black solid 1px;
+  padding: 5px;
+  margin-top: 10%;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
+
 .instructions {
   width: 50%;
   font-size: 11px;
