@@ -1,12 +1,16 @@
 
 Rooster Grin Coding Challenge:
 
+For a live demo, please visit: https://roostergrin-challenge.herokuapp.com/#/
+Please wait a couple of moments to allow the dynos to spin back up!
 
 Installation:
 Download from github. Use rails for your server, seed the database,
 and turn on webpack.
 
 Ideas for improvement:
+- The challenge asked for a dropdown, but I thought a search feature would be better. Could allow user to search by either name OR patient id.
+
 - Thinking of adding an 'edit' button. This would allow a user to change the email after formatting, if they discover a spelling error or just want to change the contexts.
 
 - Emoji might a cute addition as well, as they are gaining popularity recently.
