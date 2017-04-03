@@ -27,6 +27,9 @@
     "node": "6.3.0",
     "npm": "3.10.3"
   },
+  "scripts": {
+    "postinstall": "webpack"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
