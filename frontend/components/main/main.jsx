@@ -89,21 +89,25 @@ class Main extends React.Component{
     newLine.forEach((span) => {
       // broken down into word and punctuation pieces
       span.split(" ").forEach((word) => {
+        let modifiedWord = [];
         // punctution and words separated into an array ["@", "fname", "!"]
         let elements = word.split(/\s*\b\s*/);
         for (let i = 0; i < elements.length; i++) {
           if (elements[i] === "@") {
-            console.log(this.state[elements[1]]);
-            this.state.finalText.push((this.state[elements[1]]));
+            modifiedWord.push(this.state[elements[1]]);
+            // this.state.finalText.push((this.state[elements[1]]));
             i++;
           }
           else {
-            this.state.finalText.push(elements[i])
-            console.log(elements[i]);
+            modifiedWord.push(elements[i])
+            // this.state.finalText.push(elements[i])
           }
         }
-      })
-    })
+        this.state.finalText.push(modifiedWord.join(""));
+        this.state.finalText.push(" ");
+      });
+      this.state.finalText.push("\n")
+    });
 
 
     this.setState({
