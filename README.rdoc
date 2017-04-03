@@ -7,9 +7,6 @@ Download from github. Use rails for your server, seed the database,
 and turn on webpack.
 
 Ideas for improvement:
-- Thinking of adding an 'edit' button. This would allow a user to
-change the email after formatting, if they discover a spelling error
-or just want to change the contexts.
+- Thinking of adding an 'edit' button. This would allow a user to change the email after formatting, if they discover a spelling error or just want to change the contexts.
 
-- Emoji might a cute addition as well, as they are gaining popularity
-recently.
+- Emoji might a cute addition as well, as they are gaining popularity recently.
