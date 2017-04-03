@@ -140,16 +140,33 @@ class Main extends React.Component{
 
       <div className={`formatWrapper` + " " + this.state.formatHide}>
 
-        <li className="instructions"> When writing your note, please be aware of the following keys:
-          <ul>@fname:  Patient's first name</ul>
-          <ul>@lname:  Patient's last name</ul>
-          <ul>@street: 12345 ABC Street</ul>
-          <ul>@phone:  (123)456-789</ul>
-          <ul>@city:   San Francisco</ul>
-          <ul>@state:  California</ul>
-          <ul>@zip:    123456</ul>
-          <ul>@email:  sample@email.com</ul>
-        </li>
+      <div className="instructionsContainer">
+        <dl className="instructions one"> When writing your note, please be aware of the following keys:
+          <br/>
+          <br/>
+          <dt>@fname</dt>
+          <dd>Tom</dd>
+          <dt>@lname</dt>
+          <dd>Servo</dd>
+          <dt>@street</dt>
+          <dd>221 Baker St.</dd>
+          <dt>@phone</dt>
+          <dd>(123)456-789</dd>
+        </dl>
+
+        <dl className="instructions two">
+          <br/>
+          <br/>
+          <dt>@city</dt>
+          <dd>London</dd>
+          <dt>@state</dt>
+          <dd>California</dd>
+          <dt>@zip</dt>
+          <dd>94122</dd>
+          <dt>@email</dt>
+          <dd>email@example.com</dd>
+        </dl>
+      </div>
 
           <p className="dropdownInstruction">Please choose a patient from the dropdown:</p>
           <Dropdown options={this.props.patients}

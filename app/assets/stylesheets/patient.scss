@@ -16,17 +16,14 @@
   flex-direction: row;
 }
 
-
-
-.instructions {
-  width: 50%;
-  font-size: 11px;
-  margin-left: 5%;
+.instructionsContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
-.instructions > ul {
-  font-size: 12px;
-  margin: 0px;
+.instructions {
+  font-size: 11px;
 }
 
 .Dropdown-root {
