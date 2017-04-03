@@ -90,11 +90,16 @@ class Main extends React.Component{
       let modifiedSent = [];
       // broken down into word and punctuation pieces
       span.split(" ").forEach((word) => {
+
         let modifiedWord = [];
         let elements = word.split(/\s*\b\s*/);
+
         for (let i = 0; i < elements.length; i++) {
+          console.log(elements[i].length);
+          console.log(elements[i][elements[i].length - 1]);
+          console.log(elements[i + 1]);
           if (elements[i] === "@") {
-            modifiedWord.push(this.state[elements[1]]);
+            modifiedWord.push(this.state[elements[i + 1]]);
             i++;
           }
           else {
@@ -123,19 +128,20 @@ class Main extends React.Component{
 
 
   render() {
+    console.log(this.state.finalText);
     return (
     <div className="mainWrapper">
 
       <div className={`formatWrapper` + " " + this.state.formatHide}>
 
         <li className="instructions"> When writing your note, please be aware of the following keys:
-          <ul>@fname: Patient's first name</ul>
+          <ul>@fname:  Patient's first name</ul>
           <ul>@lname:  Patient's last name</ul>
           <ul>@street: 12345 ABC Street</ul>
           <ul>@phone:  (123)456-789</ul>
           <ul>@city:   San Francisco</ul>
           <ul>@state:  California</ul>
-          <ul>@zip:   123456</ul>
+          <ul>@zip:    123456</ul>
           <ul>@email:  sample@email.com</ul>
         </li>
 

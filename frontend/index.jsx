@@ -10,6 +10,4 @@ document.addEventListener('DOMContentLoaded', () => {
     let store = configureStore();
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
-    // const root = document.getElementById('root');
-    // ReactDOM.render(<h1>Welcome to Rooster Grin Medical!</h1>, root);
 });

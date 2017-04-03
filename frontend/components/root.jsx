@@ -13,8 +13,6 @@ import MainContainer from './main/main_container';
 
 // actions
 import { requestAllPatients } from '../actions/patients_actions';
-// import { requestAllPosts, requestPost } from '../actions/posts_actions';
-// import { requestPostComments } from '../actions/comments_actions';
 
 
 const Root = ({store}) => {
