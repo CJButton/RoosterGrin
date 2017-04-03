@@ -87,25 +87,23 @@ class Main extends React.Component{
     let newLine = this.state.text.split("\n");
     // entire line
     newLine.forEach((span) => {
+      let modifiedSent = [];
       // broken down into word and punctuation pieces
       span.split(" ").forEach((word) => {
         let modifiedWord = [];
-        // punctution and words separated into an array ["@", "fname", "!"]
         let elements = word.split(/\s*\b\s*/);
         for (let i = 0; i < elements.length; i++) {
           if (elements[i] === "@") {
             modifiedWord.push(this.state[elements[1]]);
-            // this.state.finalText.push((this.state[elements[1]]));
             i++;
           }
           else {
             modifiedWord.push(elements[i])
-            // this.state.finalText.push(elements[i])
           }
         }
-        this.state.finalText.push(modifiedWord.join(""));
-        this.state.finalText.push(" ");
+        modifiedSent.push(modifiedWord.join(""));
       });
+      this.state.finalText.push(modifiedSent.join(" "));
       this.state.finalText.push("\n")
     });
 
@@ -169,8 +167,13 @@ class Main extends React.Component{
       <div className={this.state.formatShow}>
         <div className="flexContainer">
           <div className="formattedContainer">
-
-
+            {this.state.finalText.map((el, idx) => {
+              if (el === "\n") {
+                return React.createElement("br")
+              } else {
+                return <span key={idx}>{el}</span>
+              }
+            })}
           </div>
         </div>
       </div>
@@ -198,7 +201,7 @@ class Main extends React.Component{
     );
   }
 }
-
+//
 // Hi @fname @lname
 //
 // Is this contact info still correct?
