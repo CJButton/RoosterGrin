@@ -94,19 +94,21 @@ class Main extends React.Component{
         let modifiedWord = [];
         let elements = word.split(/\s*\b\s*/);
 
+        // punctuation and letters are broken apart
         for (let i = 0; i < elements.length; i++) {
-          console.log(elements[i].length);
-          console.log(elements[i][elements[i].length - 1]);
-          console.log(elements[i + 1]);
+          // just a standard case of @fname
           if (elements[i] === "@") {
             modifiedWord.push(this.state[elements[i + 1]]);
             i++;
+
+            // needed to resolve edgecase of something like "----@fname"
           } else if (elements[i][elements[i].length - 1] === "@" &&
                       this.state[elements[i + 1]]){
             modifiedWord.push(elements[0].slice(0, elements[0].length - 1));
             modifiedWord.push(this.state[elements[i + 1]]);
             i++;
           }
+
           else {
             modifiedWord.push(elements[i])
           }
@@ -133,7 +135,6 @@ class Main extends React.Component{
 
 
   render() {
-    console.log(this.state.finalText);
     return (
     <div className="mainWrapper">
 
@@ -157,16 +158,17 @@ class Main extends React.Component{
           <br></br>
 
 
-
             <div className="textAreaContainer">
               <p className="textAreaTitle">What would you like to write?</p>
               <textarea className="textArea"
                         onChange={this.handleText.bind(this)}
                         value={this.state.text}/>
-              <br/>
-              <button className="submitButton button"
-                      onClick={this.submitHit.bind(this)}>Submit!</button>
             </div>
+              <br/>
+              <div className="buttonContainer">
+                <button className="submitButton button"
+                  onClick={this.submitHit.bind(this)}>Submit!</button>
+              </div>
 
           <br/>
           <br/>
@@ -175,8 +177,8 @@ class Main extends React.Component{
 
 
       <div className={this.state.formatShow}>
-        <div className="flexContainer">
-          <div className="formattedContainer">
+        <div className="flexContainer email">
+          <div className="formattedContainer email">
             {this.state.finalText.map((el, idx) => {
               if (el === "\n") {
                 return React.createElement("br")
