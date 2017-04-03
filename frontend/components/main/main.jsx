@@ -168,27 +168,32 @@ class Main extends React.Component{
         </dl>
       </div>
 
-          <p className="dropdownInstruction">Please choose a patient from the dropdown:</p>
+
+      <div className="patientChooser">
+        <p className="dropdownInstruction">Please choose a patient from the dropdown:</p>
+        <div className="dropdownContainer">
           <Dropdown options={this.props.patients}
-                    onChange={this.selectPatient.bind(this)}
-                    placeholder={this.state.currentPatient} />
-          <br></br>
+            onChange={this.selectPatient.bind(this)}
+            placeholder={this.state.currentPatient} />
+        </div>
+        <br></br>
+      </div>
 
 
-            <div className="textAreaContainer">
-              <p className="textAreaTitle">What would you like to write?</p>
-              <textarea className="textArea"
-                        onChange={this.handleText.bind(this)}
-                        value={this.state.text}/>
-            </div>
-              <br/>
-              <div className="buttonContainer">
-                <button className="submitButton button"
-                  onClick={this.submitHit.bind(this)}>Submit!</button>
-              </div>
+        <div className="textAreaContainer">
+          <p className="textAreaTitle">What would you like to write?</p>
+          <textarea className="textArea"
+            onChange={this.handleText.bind(this)}
+            value={this.state.text}/>
+        </div>
+        <br/>
+        <div className="buttonContainer">
+          <button className="submitButton button"
+            onClick={this.submitHit.bind(this)}>Submit!</button>
+        </div>
 
-          <br/>
-          <br/>
+        <br/>
+        <br/>
 
       </div>
 

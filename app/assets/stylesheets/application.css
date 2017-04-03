@@ -18,7 +18,8 @@
  }
 
  body {
-    background-color: ##FFFFFF;
+    background-image: url(http://res.cloudinary.com/ddbfkqb9m/image/upload/v1491199019/cloud-wallpaper-5_ih29rp.jpg);
+    background-position: center center;
     font-family: 'Open Sans', sans-serif;
     height: 100%;
     width: 100%;

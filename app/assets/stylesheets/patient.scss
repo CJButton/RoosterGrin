@@ -8,6 +8,7 @@
   border: black solid 1px;
   padding: 5px;
   margin-top: 10%;
+  background-color: white;
 }
 
 .flexContainer {
@@ -26,16 +27,21 @@
   font-size: 11px;
 }
 
+.dropdownContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .Dropdown-root {
-  width: 200px;
+  width: 140px;
   background-color: #BBBBBB;
-  margin-left: 5%;
 }
 
 .Dropdown-placeholder {
   padding: 5px;
   cursor: pointer;
   font-size: 12px;
+  border: black solid 1px;
 }
 
 .Dropdown-option {
@@ -52,24 +58,23 @@
   background-color: #BBBBBB;
   position: absolute;
   z-index: 1;
-  width: 200px;
+  width: 140px;
 }
 
 .dropdownInstruction {
   font-size: 15px;
-  margin-left: 5%;
+  display: flex;
+  justify-content: center;
 }
 
 .textAreaContainer {
   display: flex;
-  // justify-content: center;
   flex-direction: column;
 }
 
 .textArea {
   height: 200px;
   width: 60%;
-  // margin-left: 5%;
   padding: 5px;
   display: block;
   margin-left: auto;
@@ -84,7 +89,7 @@
 .submitButton {
   width: 150px;
   height: 30px;
-  border: none;
+  border: solid black 1px;
   // margin-left: 28%;
   background-color: #BBBBBB;
 }
