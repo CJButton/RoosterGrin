@@ -123,7 +123,6 @@ class Main extends React.Component{
 
 
   render() {
-    console.log(this.state.finalText);
     return (
     <div className="mainWrapper">
 
@@ -211,30 +210,3 @@ class Main extends React.Component{
 // @email
 
 export default Main;
-// {this.state.finalText.map((word, idx) => {
-//   if (word[0] === "@") {
-//     let stateWord = word.split("@")[1]
-//     return <span key={idx}>{this.state[stateWord]}</span>
-//   } else if (word === "\n") {
-//     return React.createElement("br")
-//   } else {
-//     return <span key={idx}>{word}</span>
-//   }
-// })}
-
-
-// .split(/\s*\b\s*/) ==> preserves each character, but separtes out punct
-// e.g. ==> @fname! becomes ["@", "fname", "!"]
-
-// newLine.forEach((span) => {
-//   let splitSpan = span.split(" ");
-//   splitSpan.forEach((word) => {
-//     if (this.state[word.split(1)]) {
-//       this.state.finalText.push(word.replace(("@" + word), this.state[name]));
-//     } else {
-//       this.state.finalText.push(word);
-//     }
-//     this.state.finalText.push(" ");
-//   })
-//   this.state.finalText.push("\n")
-// })
