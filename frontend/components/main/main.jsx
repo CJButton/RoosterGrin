@@ -101,6 +101,11 @@ class Main extends React.Component{
           if (elements[i] === "@") {
             modifiedWord.push(this.state[elements[i + 1]]);
             i++;
+          } else if (elements[i][elements[i].length - 1] === "@" &&
+                      this.state[elements[i + 1]]){
+            modifiedWord.push(elements[0].slice(0, elements[0].length - 1));
+            modifiedWord.push(this.state[elements[i + 1]]);
+            i++;
           }
           else {
             modifiedWord.push(elements[i])
