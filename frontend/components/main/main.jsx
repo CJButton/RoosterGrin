@@ -85,19 +85,26 @@ class Main extends React.Component{
 
   handleSubmit() {
     let newLine = this.state.text.split("\n");
-
+    // entire line
     newLine.forEach((span) => {
-      let splitSpan = span.split(" ");
-      splitSpan.forEach((word) => {
-        if (this.state[word.split(1)]) {
-          this.state.finalText.push(word.replace(("@" + word), this.state[name]));
-        } else {
-          this.state.finalText.push(word);
+      // broken down into word and punctuation pieces
+      span.split(" ").forEach((word) => {
+        // punctution and words separated into an array ["@", "fname", "!"]
+        let elements = word.split(/\s*\b\s*/);
+        for (let i = 0; i < elements.length; i++) {
+          if (elements[i] === "@") {
+            console.log(this.state[elements[1]]);
+            this.state.finalText.push((this.state[elements[1]]));
+            i++;
+          }
+          else {
+            this.state.finalText.push(elements[i])
+            console.log(elements[i]);
+          }
         }
-        this.state.finalText.push(" ");
       })
-      this.state.finalText.push("\n")
     })
+
 
     this.setState({
       formatHide: "formatHide",
@@ -115,7 +122,6 @@ class Main extends React.Component{
 
   render() {
     console.log(this.state.finalText);
-    console.log(this.state.text);
     return (
     <div className="mainWrapper">
 
@@ -138,7 +144,7 @@ class Main extends React.Component{
                     placeholder={this.state.currentPatient} />
           <br></br>
 
-          <div className="textAreaFlex">
+
 
             <div className="textAreaContainer">
               <p className="textAreaTitle">What would you like to write?</p>
@@ -149,7 +155,7 @@ class Main extends React.Component{
               <button className="submitButton button"
                       onClick={this.submitHit.bind(this)}>Submit!</button>
             </div>
-          </div>
+
           <br/>
           <br/>
 
@@ -158,20 +164,10 @@ class Main extends React.Component{
 
       <div className={this.state.formatShow}>
         <div className="flexContainer">
-          <div/>
           <div className="formattedContainer">
-            {this.state.finalText.map((word, idx) => {
-              if (word[0] === "@") {
-                let stateWord = word.split("@")[1]
-                return <span key={idx}>{this.state[stateWord]}</span>
-              } else if (word === "\n") {
-                return React.createElement("br")
-              } else {
-                return <span key={idx}>{word}</span>
-              }
-            })}
+
+
           </div>
-          <div/>
         </div>
       </div>
 
@@ -208,3 +204,30 @@ class Main extends React.Component{
 // @email
 
 export default Main;
+// {this.state.finalText.map((word, idx) => {
+//   if (word[0] === "@") {
+//     let stateWord = word.split("@")[1]
+//     return <span key={idx}>{this.state[stateWord]}</span>
+//   } else if (word === "\n") {
+//     return React.createElement("br")
+//   } else {
+//     return <span key={idx}>{word}</span>
+//   }
+// })}
+
+
+// .split(/\s*\b\s*/) ==> preserves each character, but separtes out punct
+// e.g. ==> @fname! becomes ["@", "fname", "!"]
+
+// newLine.forEach((span) => {
+//   let splitSpan = span.split(" ");
+//   splitSpan.forEach((word) => {
+//     if (this.state[word.split(1)]) {
+//       this.state.finalText.push(word.replace(("@" + word), this.state[name]));
+//     } else {
+//       this.state.finalText.push(word);
+//     }
+//     this.state.finalText.push(" ");
+//   })
+//   this.state.finalText.push("\n")
+// })
